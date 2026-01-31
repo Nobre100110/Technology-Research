@@ -1,32 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap'); /* Importa a fonte Quicksand do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 * {
-    box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho total do elemento */
+    box-sizing: border-box;
 }
 
 :root {
-    --primary-color: #8ab4f8; /* Cor primária (azul claro) */
-    --secondary-color: #e8eaed; /* Cor secundária (cinza claro) */
-    --tertiary-color: #9aa0a6; /* Cor terciária (cinza médio) */
-    --accent-1: #6dd3ff; /* azul claro adicional para gradiente */
-    --accent-2: #7a6dff; /* roxo-azulado para contraste */
+    --primary-color: #8ab4f8;
+    --secondary-color: #e8eaed;
+    --tertiary-color: #9aa0a6;
+    --accent-1: #6dd3ff;
+    --accent-2: #7a6dff;
     --bg-gradient-alpha: rgba(138,180,248,0.06);
-    --bg-color: #202124; /* Cor de fundo (cinza escuro) */
+    --bg-color: #202124;
 }
 
 body {
-    margin: 0; /* Remove a margem padrão do body */
-    /* Fundo base com camadas radiais suaves + cor sólida */
+    margin: 0;
     background-color: var(--bg-color);
-    background-image: 
-        radial-gradient(circle at 10% 20%, rgba(138,180,248,0.06), transparent 18%),
-        radial-gradient(circle at 90% 80%, rgba(154,160,166,0.04), transparent 20%);
-    color: var(--secondary-color); /* Define a cor do texto padrão usando uma variável */
-    font-family: "Quicksand", sans-serif; /* Define a família da fonte */
-    position: relative; /* necessário para pseudoelementos posicionados */
-    overflow-x: hidden; /* evita barras horizontais por causa da animação */
-    /* Layout: faz o body ocupar toda a altura e empurra o footer para baixo
-       quando o conteúdo for curto, evitando que o footer suba para cima. */
+    background-image: radial-gradient(circle at 10% 20%, rgba(138,180,248,0.06), transparent 18%), radial-gradient(circle at 90% 80%, rgba(154,160,166,0.04), transparent 20%);
+    color: var(--secondary-color);
+    font-family: "Quicksand", sans-serif;
+    position: relative;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -37,7 +32,7 @@ body::before,
 body::after {
     content: "";
     position: fixed;
-    z-index: -1; /* fica atrás do conteúdo */
+    z-index: -1;
     pointer-events: none;
     filter: blur(80px);
     opacity: 0.45;
@@ -80,29 +75,29 @@ body::after {
 }
 
 header {
-    padding: 2rem 1rem; /* Espaçamento interno (2rem em cima/baixo, 1rem nos lados) */
-    display: flex; /* Habilita o layout flexbox */
-    align-items: center; /* Alinha os itens verticalmente ao centro */
-    justify-content: space-around; /* Distribui os itens com espaço ao redor */
-    position: sticky; /* Mantém o cabeçalho fixo no topo ao rolar a página */
-    top: 0; /* Posição do topo quando sticky */
-    background: rgba(32,33,36,0.45); /* leve vidro fosco por cima do fundo animado */
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: sticky;
+    top: 0;
+    background: rgba(32,33,36,0.45);
     backdrop-filter: blur(6px);
-    z-index: 20; /* Define a ordem de empilhamento para ficar sobre outros elementos */
-    border-bottom: 1px solid var(--bg-color); /* Adiciona uma borda inferior */
-    gap: 1rem; /* Espaçamento entre os elementos flex */
+    z-index: 20;
+    border-bottom: 1px solid var(--bg-color);
+    gap: 1rem;
 }
 
 /* Pseudoelementos animados para header (blobs menores) */
 header {
-    position: sticky; /* reafirma */
+    position: sticky;
 }
 
 header::before,
 header::after {
     content: "";
     position: absolute;
-    z-index: 0; /* fica entre o fundo (body::*) e o conteúdo do header */
+    z-index: 0;
     pointer-events: none;
     filter: blur(36px);
     opacity: 0.55;
@@ -127,134 +122,130 @@ header::after {
 }
 
 header h1 {
-    font-size: 1.5rem; /* Tamanho da fonte */
-    margin: 0; /* Remove a margem padrão */
-    font-weight: 500; /* Peso da fonte (médio) */
-    white-space: nowrap; /* Impede a quebra de linha do texto */
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 500;
+    white-space: nowrap;
 }
 
 div input {
-    padding: 0.375rem 0.75rem; /* Espaçamento interno */
-    border-radius: 1rem; /* Arredonda as bordas */
-    border: 1px solid rgba(255,255,255,0.06); /* borda sutil */
-    background: rgba(255,255,255,0.02); /* input translúcido para combinar com header */
-    font-family: inherit; /* Herda a família da fonte do elemento pai */
-    font-size: 1.5rem; /* Tamanho da fonte */
-    transition: all 0.2s ease; /* Adiciona uma transição suave para todas as propriedades */
-    width: 30rem; /* Largura do input */
-    color: var(--secondary-color); /* Cor do texto digitado */
-    margin-right: .5rem; /* Margem à direita */
+    padding: 0.375rem 0.75rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.02);
+    font-family: inherit;
+    font-size: 1.5rem;
+    transition: all 0.2s ease;
+    width: 30rem;
+    color: var(--secondary-color);
+    margin-right: .5rem;
 }
 
 div input::placeholder {
-    font-size: 1.2rem; /* Tamanho da fonte do placeholder */
-    font-weight: 300; /* Peso da fonte do placeholder */
-    color: var(--tertiary-color); /* Cor do texto do placeholder */
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--tertiary-color);
 }
 
 div input:focus {
-    outline: none; /* Remove a borda de foco padrão */
-    border-color: var(--bg-color); /* Muda a cor da borda ao focar */
-    box-shadow: 0 0 0 0.1rem var(--tertiary-color); /* Adiciona uma sombra de caixa para indicar foco */
+    outline: none;
+    border-color: var(--bg-color);
+    box-shadow: 0 0 0 0.1rem var(--tertiary-color);
 }
 
 #botao-busca {
-    padding: 1rem 2rem; /* Espaçamento interno */
-    border-radius: 1rem; /* Arredonda as bordas */
-    border: none; /* Remove a borda padrão */
-    cursor: pointer; /* Muda o cursor para uma mão ao passar por cima */
-    font-family: inherit; /* Herda a família da fonte */
-    font-weight: 500; /* Peso da fonte */
-    font-size: 1rem; /* Tamanho da fonte */
-    white-space: nowrap; /* Impede a quebra de linha do texto */
-    transition: background-color 0.2s ease, color 0.2s ease; /* Transição suave para cor de fundo e cor do texto */
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1rem;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease;
     background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
-    color: var(--bg-color); /* texto escuro sobre o gradiente */
+    color: var(--bg-color);
     border: 1px solid rgba(255,255,255,0.06);
     box-shadow: 0 6px 18px rgba(122,109,255,0.08);
 }
 
 #botao-busca:hover {
-    background-color: var(--primary-color); /* Muda a cor de fundo ao passar o mouse */
-    color: var(--bg-color); /* Muda a cor do texto ao passar o mouse */
-    box-shadow: 0 0 0 0.1rem var(--primary-color); /* Adiciona uma sombra de caixa */
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 0 0.1rem var(--primary-color);
 }
 
 #botao-busca:active {
-    transform: scale(0.98); /* Efeito de clique (diminui o tamanho) */
+    transform: scale(0.98);
 }
 
 main {
-    /* Removida a rolagem interna para usar a barra de rolagem do navegador
-       (evita mostrar duas barras: a do container e a do próprio browser). */
-    max-width: 80rem; /* Largura máxima do conteúdo principal */
-    margin: 0 auto; /* Centraliza o conteúdo principal horizontalmente */
-    margin-top: 2rem; /* Margem no topo */
-    /* permite que o main cresça e empurre o footer para o fim da página */
+    max-width: 80rem;
+    margin: 0 auto;
+    margin-top: 2rem;
     flex: 1 0 auto;
 }
 
 article {
-    background: none; /* Sem cor de fundo */
-    border-radius: 0; /* Sem bordas arredondadas */
-    padding: 0; /* Remove o padding */
-    padding: 0 1rem; /* Espaçamento interno nos lados */
-    margin-bottom: 1.25rem; /* Margem inferior */
-    box-shadow: none; /* Sem sombra */
-    transition: background-color 0.3s ease, border-bottom-color 0.3s ease; /* Transição suave */
-    border-bottom: 1px solid var(--bg-color); /* Borda inferior */
-    padding-bottom: 1.5rem; /* Espaçamento interno inferior */
+    background: none;
+    border-radius: 0;
+    padding: 0 1rem;
+    margin-bottom: 1.25rem;
+    box-shadow: none;
+    transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
+    border-bottom: 1px solid var(--bg-color);
+    padding-bottom: 1.5rem;
 }
 
 article:hover {
-    transform: scale(1.01); /* Aumenta ligeiramente o tamanho ao passar o mouse */
-    cursor: pointer; /* Muda o cursor para uma mão */
+    transform: scale(1.01);
+    cursor: pointer;
 }
 
 article h2 {
-    margin-top: 0; /* Remove a margem superior */
-    font-weight: 600; /* Peso da fonte */
-    font-size: 1.6rem; /* Tamanho da fonte */
-    border-bottom: none; /* Sem borda inferior */
-    padding-bottom: 0; /* Sem espaçamento interno inferior */
-    margin-bottom: 0.25rem; /* Margem inferior */
-    color: var(--primary-color); /* Cor do texto */
+    margin-top: 0;
+    font-weight: 600;
+    font-size: 1.6rem;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
 }
 
 article p {
-    margin: 0.5rem 0; /* Margem superior e inferior */
-    line-height: 1.6; /* Altura da linha para melhor legibilidade */
-    font-size: 1rem; /* Tamanho da fonte */
-    margin-bottom: 0.5rem; /* Margem inferior */
-    color: var(--secondary-color); /* Cor do texto */
+    margin: 0.5rem 0;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
 }
 
 article p strong {
-    color: var(--tertiary-color); /* Cor do texto em negrito */
-    font-weight: 400; /* Peso da fonte */
+    color: var(--tertiary-color);
+    font-weight: 400;
 }
 
 article a {
-    color: var(--primary-color); /* Cor do link */
-    text-decoration: none; /* Remove o sublinhado padrão */
-    font-weight: 200; /* Peso da fonte */
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 200;
 }
 
 article a:hover {
-    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+    text-decoration: underline;
 }
 
 .footer {
-    position: relative; /* relativo para pseudoelementos */
-    bottom: 0; /* Alinha na parte inferior */
-    left: 0; /* Alinha à esquerda */
-    width: 100%; /* Largura total */
-    color: var(--tertiary-color); /* Cor do texto */
-    background: rgba(32,33,36,0.35); /* leve vidro fosco */
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: var(--tertiary-color);
+    background: rgba(32,33,36,0.35);
     backdrop-filter: blur(4px);
-    padding: 18px 20px; /* Espaçamento interno */
-    border-top: 1px solid rgba(255,255,255,0.03); /* Borda superior sutil */
-    font-size: 0.9rem; /* Tamanho da fonte */
+    padding: 18px 20px;
+    border-top: 1px solid rgba(255,255,255,0.03);
+    font-size: 0.9rem;
     z-index: 10;
 }
 
@@ -263,7 +254,7 @@ article a:hover {
 .footer::after {
     content: "";
     position: absolute;
-    z-index: -1; /* fica atrás do conteúdo do footer */
+    z-index: -1;
     pointer-events: none;
     filter: blur(34px);
     opacity: 0.45;
@@ -300,8 +291,8 @@ div input:focus {
 }
 
 .footer-location {
-    color: #9aa0a6; /* Cor do texto */
-    margin-bottom: 10px; /* Margem inferior */
+    color: #9aa0a6;
+    margin-bottom: 10px;
 }
 
 .footer-links {
@@ -327,6 +318,12 @@ div input:focus {
     color: var(--accent-2); /* Muda a cor do link ao passar o mouse para o tom de destaque */
     background: rgba(255,255,255,0.02);
 }
+
+/* Estilos adicionais para a página de detalhe (detail.html) */
+.detail-container { background: transparent; }
+.detail-header #badgeHolder svg { width: 96px; height: 96px; }
+.detail-header #badgeHolder { flex: 0 0 96px; }
+.code-sample { font-family: Menlo, Monaco, Consolas, 'Courier New', monospace; font-size:0.95rem; }
 
 .icon-github { display: inline-block; width: 18px; height: 18px; }
 
@@ -441,6 +438,9 @@ div input:focus {
     color: var(--bg-color);
     font-weight: 600;
 }
+
+/* Ajuste: mover o botão "Entrar" um pouco para baixo no painel de login */
+#loginBtn { margin-top: 1.0rem; }
 
 /* Responsivo: encaixa bem em telas pequenas */
 @media (max-width: 520px) {
@@ -573,11 +573,98 @@ article.card a {
     padding: 1.5rem 1.75rem;
 }
 
-.login-logo { border-radius: 16px; width: 96px; height: 96px; flex: 0 0 96px; }
+.login-logo { border-radius: 16px; width: 100px; height: 96px; flex: 0 0 96px; }
 
 .login-form { gap: 0.6rem; }
 .label-input input { padding: 0.72rem 0.9rem; border-radius: 10px; }
 .btn-primary { padding: 0.7rem 1.15rem; border-radius: 12px; box-shadow: 0 8px 26px rgba(122,109,255,0.12); }
+
+/* ===== Novos estilos: links auxiliares e botões sociais ===== */
+.login-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+}
+.create-account-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+.create-account-link:hover { text-decoration: underline; }
+
+.forgot-above { display: flex; justify-content: flex-end; margin: 0 0 0.12rem 0; }
+.forgot-link { color: var(--primary-color); font-size: 0.9rem; text-decoration: none; }
+.forgot-link:hover { color: var(--primary-color); text-decoration: underline; }
+
+.social-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0.35rem 0 0 0;
+}
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.66rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.02);
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-weight: 600;
+    justify-content: center;
+}
+.social-btn .social-logo { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; }
+.social-btn.google { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); }
+.social-btn.github { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); }
+
+.social-btn[aria-disabled="true"] { pointer-events: none; }
+
+.separator { display: flex; align-items: center; gap: 0.75rem; color: var(--tertiary-color); font-size: 0.9rem; margin: 0.6rem 0 0.35rem 0; }
+.separator::before, .separator::after {
+    content: "";
+    flex: 1 1 auto;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04));
+}
+.separator span { padding: 0 0.6rem; white-space: nowrap; }
+
+/* pequenos ajustes responsivos para containers sociais */
+@media (max-width: 520px) {
+    .social-btn { justify-content: flex-start; }
+    .social-btn span { font-size: 0.95rem; }
+}
+
+/* estilo para link criar conta no final */
+.create-account-end .create-account-link { color: var(--primary-color); text-decoration: none; font-weight: 600; }
+.create-account-end .create-account-link:hover { text-decoration: underline; }
+
+/* Coloca 'Criar conta' e 'Esqueceu a senha' lado a lado, centralizados, com espaçamento considerável */
+.account-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.25rem; /* distância considerável entre os links */
+    margin-top: 0.6rem;
+}
+
+@media (max-width: 480px) {
+    .account-row { gap: 0.8rem; flex-direction: column; }
+}
+
+/* Unifica cor, tamanho e peso de 'Criar conta' e 'Esqueceu a senha' */
+.create-account-link, .forgot-link {
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+.create-account-link:hover, .forgot-link:hover {
+    text-decoration: underline;
+    color: var(--primary-color);
+}
 
 /* Search specific styling */
 /* Estilo refinado do input da barra de busca */
@@ -673,4 +760,20 @@ article.card a {
     button { /* Estilos para o botão em telas muito pequenas */
         margin-top: 1rem; /* Adiciona margem no topo */
     }
+}
+
+/* Esconder totalmente o bloco de logo do painel de login */
+.login-logo {
+  display: none !important;
+}
+
+/* Ajuste fino: reduz o gap do .login-inner quando o logo estiver oculto,
+   evitando espaço extra à esquerda */
+.login-inner {
+  gap: 0.6rem; /* antes estava 1rem, ajuste conforme quiser */
+}
+
+/* Em telas pequenas, mantém o layout consistente */
+@media (max-width: 520px) {
+  .login-inner { gap: 0.6rem; }
 }

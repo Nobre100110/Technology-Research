@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Detalhe</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* pequenas customizações locais para a página de detalhe */
+    .detail-container { max-width: 920px; margin: 2.25rem auto; padding: 1.25rem; }
+    .detail-header { display:flex; gap:1rem; align-items:center; }
+    .detail-header h1 { margin:0; font-size:1.6rem; }
+    .detail-meta { color: var(--tertiary-color); margin-top:0.25rem; }
+    .detail-tags { margin-top:0.75rem; display:flex; gap:0.5rem; flex-wrap:wrap; }
+    .tag { background: rgba(255,255,255,0.02); padding:0.35rem 0.6rem; border-radius:10px; font-size:0.85rem; color:var(--secondary-color); }
+    .detail-section { margin-top:1rem; }
+    pre.code-sample { background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(255,255,255,0.02)); padding:1rem; border-radius:10px; overflow:auto; }
+    .doc-link { display:block; margin-top:2rem; text-align:right; }
+  </style>
+</head>
+<body>
+  <main class="detail-container">
+    <div id="detailRoot">
+      <div class="detail-header">
+        <div id="badgeHolder"></div>
+        <div>
+          <h1 id="itemName">Carregando...</h1>
+          <div id="itemDate" class="detail-meta"></div>
+        </div>
+      </div>
+
+      <div id="itemDesc" class="detail-section"></div>
+
+      <div id="itemTags" class="detail-tags"></div>
+
+      <div id="moreInfo" class="detail-section"></div>
+
+      <div class="doc-link">
+        <a id="docLink" href="#" target="_blank">Ir para documentação oficial »</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="detail.js"></script>
+</body>
+</html>
